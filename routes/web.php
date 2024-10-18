@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,34 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+}) -> name('index');
 
-Route::get('/testview',function (){
-    return view('testview');
-});
+Route::get('/products',function(){
+    return view('products_index');
+}) -> name('products');
 
-Route::get('/texto',function (){
-    echo"Hi wordl";
-    echo "<h1> Hola mundo </h1>";
-});
+Route::get('/clients',function(){
+    return view('clients_index');
+}) -> name('clients');
 
-Route::get('/echo',function (){
-    echo view('test2');
-});
-
-Route::get('/MasRutas',function (){
-    return "Podemos Tener Rutas tipo GET, POST, Delete, Patch";
-});
-
-Route::get('/custom',function (){
-    $msj= "Mensaje desde el servidor";
-    $id = "500";
-    return view ('custom', ['msj' => $msj, "identi" => $id, "A" =>29]);
-});
-
-Route::get('/contact',function (){
-    return view('contacto');
-}) -> name('contact');
-
-Route::get('/testdb',[TestController::class, 'test']);
+Route::get('/sales',function(){
+    return view('sales_index');
+}) -> name('sales');
