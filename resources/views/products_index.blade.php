@@ -2,4 +2,4 @@
 
 @section('content')
 <p>Index productos</p>
-@endsection
+@endsectiong
