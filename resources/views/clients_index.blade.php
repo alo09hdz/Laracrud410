@@ -1,5 +1,5 @@
 @extends('layout.main_template')
 
 @section('content')
-<p>Index clientes</p>
+<h1>Index clientes</h1>
 @endsection

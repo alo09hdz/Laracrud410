@@ -8,7 +8,7 @@
 
     nav p{
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px;
+        font-size: 25px;
         padding-inline: 20px;
     }
 
@@ -33,7 +33,7 @@
     <nav>
         <p>
             <a href="{{route('index')}}">Inicio</a>
-            <a href="{{route('products')}}">Productos</a>
+            <a href="{{route('products.index')}}">Productos</a>
             <a href="{{route('clients')}}">Clientes</a>
             <a href="{{route('sales')}}">ventas</a>
         </p>

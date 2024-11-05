@@ -14,12 +14,16 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('nameProduct', 50)->default('producto');
-            $table->string('brand', 50)->default('marca');
-            $table->integer('stock')->default(12);
+            $table->foreignId('brand_id');
+            // $table->string('brand', 50)->default('marca');
+            $table->integer('stock')->unsigned()->nullable()->default(12);
             $table->decimal('unit_price', 6,2)->default(123.45);
             $table->string('imagen', 100)->default('imagen');
 
             $table->timestamps();
+
+            $table->foreign('brand_id')->references('id')->on('brands')
+            ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
