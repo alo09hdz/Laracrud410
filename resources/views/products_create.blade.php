@@ -12,7 +12,12 @@
         <input type="text" name="nameProduct" id="">
         
         <label for="">Marca</label>
-        <input type="text" name="brand" id="">
+        <select name="brand_id">
+            <option value="">Seleciona...</option>
+            @foreach ($brands as $brand => $id)
+                <option value="{{$id}}">{{$brand}}</option>
+            @endforeach
+        </select>
 
         <label for="">Cantidad</label>
         <input type="number" name="stock" id="">
