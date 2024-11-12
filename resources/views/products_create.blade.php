@@ -26,7 +26,7 @@
         <input type="text" name="unit_price" id="">
         
         <label for="">Imagen del Producto</label>
-        <input type="text" name="imagen" id="">
+        <input type="file" name="imagen" id="">
 
 
         <button type="submit">Registrar</button>
