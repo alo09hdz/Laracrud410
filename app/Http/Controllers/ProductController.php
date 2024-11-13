@@ -37,7 +37,7 @@ class ProductController extends Controller
         //echo "Registro Realizado";
         //dd($request);
         Product::create($request->all());
-        return to_route('products.index')->with('status', 'Producto registrado');
+        return to_route(route: 'products.index')->with('status', 'Producto registrado');
     }
 
     /**
@@ -45,7 +45,6 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        echo "Show productos";
         return view('products_show', compact('product'));
     }
 
@@ -54,7 +53,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        echo "Edit productos";
+        $brands = Brand::pluck('id', 'brand'); //Obtener datos especificos
+        return view('products_edit', compact('product','brands'));
     }
 
     /**
@@ -62,7 +62,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        echo "Update productos";
+        $product->update($request->all());//Actualizamos los datos en la base de datos
+        return to_route(route: 'products.index')->with('status', 'Producto actualizado.');
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,10 @@ Route::get('/sales',function(){
     return view('sales_index');
 }) -> name('sales');
 
+Route::get('/brands',function(){
+    return view('brands_create');
+}) -> name('brands');
+
 /*Route::get('/indexproducts/',[ProductController::class, 'index']) 
 -> name('products');
 
@@ -52,3 +57,5 @@ Route::get('/destroyproducts/',[ProductController::class, 'destroy'])
 -> name('pdestroy');
 */
 Route::resource('/products', ProductController::class);
+
+Route::resource('/brands', BrandController::class);
