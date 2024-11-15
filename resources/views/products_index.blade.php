@@ -4,7 +4,8 @@
     <h1>Productos</h1>
     <br>
     <button><a href="{{route('products.create')}}">Crear producto</a></button>
-    <button><a href="{{route('brands.create')}}">Registrar marca</a></button>
+    <button><a href="{{route('brands.create')}}">Registrar marca</a>
+    <button><a href="{{ route('brands.index') }}">Mostrar Marcas</a></button>
     <br>
 
 <table>
@@ -27,7 +28,7 @@
                 <td>
                     <button><a href="{{route("products.show",$p)}}">Mostrar</a></button>
                     <button><a href="{{route("products.edit",$p)}}">Editar</a></button>
-                    <button><a href="{{route("products.destroy",$p)}}">Eliminar</a></button>
+                    <button><a href="{{route("products.delete",$p)}}">Eliminar</a></button>
                 </td>
             </tr>
         @endforeach

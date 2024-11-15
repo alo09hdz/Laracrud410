@@ -58,4 +58,7 @@ Route::get('/destroyproducts/',[ProductController::class, 'destroy'])
 */
 Route::resource('/products', ProductController::class);
 
+Route::get('/products/{product}/delete',
+[ProductController::class, 'delete'])->name('products.delete');
+
 Route::resource('/brands', BrandController::class);
