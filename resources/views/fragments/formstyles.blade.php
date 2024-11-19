@@ -10,7 +10,7 @@
         border-radius: 12px;
         margin-block: auto;
         margin-inline: auto;
-        background-color: rgb(92, 179, 86);
+        background-color: rgb(249, 249, 249);
     }
 
     form label{
@@ -25,7 +25,7 @@
     form input[type="number"]{
         width:200;
         padding-block: 3px;
-        border: 1px solid #ffffff;
+        border: 1px solid #000000;
         border-radius: 3px;
         background-color: #ffffff;
         margin-block: 4px;

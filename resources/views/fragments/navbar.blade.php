@@ -1,6 +1,6 @@
 <style>
     header{
-        background: rgba(23, 146, 7, 0.8);
+        background: rgb(249, 176, 6);
         padding-block: 4px;
         margin-block: -8px;
         margin-inline: -8px; 
@@ -13,7 +13,7 @@
     }
 
     nav p a{
-        color: lemonchiffon;
+        color: rgb(0, 0, 0);
         text-decoration: none;
         padding-block: 10px;
         padding-inline: 10px;
@@ -21,7 +21,7 @@
     }
 
     nav p a:hover{
-        background: rgb(82, 193, 35);
+        background: rgba(255, 252, 77, 0.627);
         padding-block: 20px;
         padding-inline: 10px;
     }
@@ -34,8 +34,8 @@
         <p>
             <a href="{{route('index')}}">Inicio</a>
             <a href="{{route('products.index')}}">Productos</a>
-            <a href="{{route('clients')}}">Clientes</a>
-            <a href="{{route('sales')}}">ventas</a>
+            <a href="{{route('clients.index')}}">Clientes</a>
+            <a href="{{route('sales.index')}}">ventas</a>
         </p>
     </nav>
 </header>

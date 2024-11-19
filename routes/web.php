@@ -19,46 +19,13 @@ Route::get('/', function () {
     return view('index');
 }) -> name('index');
 
-Route::get('/products',function(){
-    return view('products_index');
-}) -> name('products');
+Route::resource('/products',App\Http\Controllers\ProductController::class);
 
-Route::get('/clients',function(){
-    return view('clients_index');
-}) -> name('clients');
+Route::resource('/brands',App\Http\Controllers\BrandController::class);
 
-Route::get('/sales',function(){
-    return view('sales_index');
-}) -> name('sales');
+Route::get('/products/{product}/delete',[App\Http\Controllers\ProductController::class, 'delete'])->name('products.delete');
 
-Route::get('/brands',function(){
-    return view('brands_create');
-}) -> name('brands');
+Route::resource('/clients',App\Http\Controllers\ClientController::class);
 
-/*Route::get('/indexproducts/',[ProductController::class, 'index']) 
--> name('products');
+Route::resource('/sales',App\Http\Controllers\SaleController::class);
 
-Route::get('/storeproducts/',[ProductController::class, 'store']) 
--> name('pstore');
-
-Route::get('/createproducts/',[ProductController::class, 'create']) 
--> name('pcreate');
-
-Route::get('/editproducts/',[ProductController::class, 'edit']) 
--> name('pedit');
-
-Route::get('/showproducts/',[ProductController::class, 'show']) 
--> name('pshow');
-
-Route::get('/updateproducts/',[ProductController::class, 'update']) 
--> name('pupdate');
-
-Route::get('/destroyproducts/',[ProductController::class, 'destroy']) 
--> name('pdestroy');
-*/
-Route::resource('/products', ProductController::class);
-
-Route::get('/products/{product}/delete',
-[ProductController::class, 'delete'])->name('products.delete');
-
-Route::resource('/brands', BrandController::class);
