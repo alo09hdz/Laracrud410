@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\Product\StoreRequest;
 use App\Models\Product;
 use App\Models\Brand;
 use Illuminate\Http\Request;
@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $gallina = Product::get(); 
+        //$gallina = Product::get(); 
+        $gallina = Product::paginate (4);
         return view('admin/products/index', compact('gallina')); 
     }
 
@@ -32,12 +33,16 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //echo "Registro Realizado";
-        //dd($request);
-        Product::create($request->all());
-        return to_route(route: 'products.index')->with('status', 'Producto registrado');
+        $data = $request->all(); //Obtener los datos del formulario
+        if (isset($data["imagen"])) {
+            $data["imagen"] = $filename = time(). "." .$data["imagen"]->extension(); //cambiar el nombre del archivo a guardar 
+            $request->imagen->move(public_path("imagen/products"),$filename);//guardar imagen en la carpeta publica 
+        }
+               
+        Product::create($data);
+        return to_route('products.index')->with('status', 'Producto registrado');
     }
 
     /**
@@ -54,7 +59,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $brands = Brand::pluck('id', 'brand'); //Obtener datos especificos
-        return view('products/edit', compact('product','brands'));
+        return view('admin/products/edit', compact('product','brands'));
     }
 
     /**
@@ -62,7 +67,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $product->update($request->all());//Actualizamos los datos en la base de datos
+        $data = $request->all(); //Obtener los datos del formulario
+        if (isset($data["imagen"])) {
+            $data["imagen"] = $filename = time(). "." .$data["imagen"]->extension(); //cambiar el nombre del archivo a guardar 
+            $request->imagen->move(public_path("imagen/products"),$filename);//guardar imagen en la carpeta publica 
+        }
+        
+        $product->update($data);//Actualizamos los datos en la base de datos
         return to_route(route: 'products.index')->with('status', 'Producto actualizado.');
     }
     public function delete(Product $product)    

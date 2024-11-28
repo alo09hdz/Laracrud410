@@ -1,6 +1,7 @@
 <style>
     header{
-        background: rgb(249, 176, 6);
+        background: rgb(155, 210, 255);
+        color:rgb(255, 255, 255);
         padding-block: 4px;
         margin-block: -8px;
         margin-inline: -8px; 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laracrud</title>
 </head>
-<body style="background-color: rgb(255, 210, 180)">
+<body style="background-color: rgb(255, 255, 255)">
     @include('fragments.navbar')
     @if(session('status'))
         {{session('status')}}
