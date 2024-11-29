@@ -1,42 +1,29 @@
-<style>
-    header{
-        background: rgb(155, 210, 255);
-        color:rgb(255, 255, 255);
-        padding-block: 4px;
-        margin-block: -8px;
-        margin-inline: -8px; 
-    }
 
-    nav p{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 25px;
-        padding-inline: 20px;
-    }
-
-    nav p a{
-        color: rgb(0, 0, 0);
-        text-decoration: none;
-        padding-block: 10px;
-        padding-inline: 10px;
-        margin-inline: -4px;
-    }
-
-    nav p a:hover{
-        background: rgba(255, 252, 77, 0.627);
-        padding-block: 20px;
-        padding-inline: 10px;
-    }
-
-    
-</style>
-
-<header>
-    <nav>
-        <p>
-            <a href="{{route('index')}}">Inicio</a>
-            <a href="{{route('products.index')}}">Productos</a>
-            <a href="{{route('clients.index')}}">Clientes</a>
-            <a href="{{route('sales.index')}}">ventas</a>
-        </p>
-    </nav>
-</header>
+<!-- Main content  -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">DULCES</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('index')}}">INICIO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('products.index')}}">PRODUCTOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('clients.index')}}">CLIENTES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('sales.index')}}">VENTAS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
